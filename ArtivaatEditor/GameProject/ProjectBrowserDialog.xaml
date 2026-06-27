@@ -20,14 +20,14 @@
                 Margin="20">
 
             <ToggleButton Content="Open Project"
-                      FontSize="32"/>
+                      FontSize="32" x:Name="openProjectButton" Click="OnToggleButton_Click"/>
 
             <ToggleButton Content="Create Project"
                       FontSize="32"
-                      Margin="30,0,0,0"/>
+                      Margin="30,0,0,0" x:Name="createProjectButton"/>
 
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" >
+        <StackPanel Grid.Row="1" Orientation="Horizontal" x:Name="browserContent" >
            <!-- Main content -->
             <Border Grid.Row="1" Background="LightBlue" >
               <TextBlock FontSize="72" Text="Open Project"></TextBlock>

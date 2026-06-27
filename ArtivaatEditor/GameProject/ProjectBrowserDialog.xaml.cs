@@ -21,5 +21,22 @@ namespace ArtivaatEditor.GameProject
         {
             InitializeComponent();
         }
+
+        private void OnToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(sender == openProjectButton)
+            {
+                if(createProjectButton.IsChecked == true) 
+                {
+                    createProjectButton = false;
+                    browserContent.Margin = new Thickness(0);
+                }
+                openProjectButton.IsChecked = true;
+            }
+            else
+            {
+
+            }
+        }
     }
 }
