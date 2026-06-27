@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using ArtivaatEditor.GameProject;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,26 @@ namespace ArtivaatEditor
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            Loaded -= MainWindow_Loaded;
+            OpenBrowserDialog();
+        }
+        private void OpenBrowserDialog()
+        {
+            var ProjectBrowser = new ProjectBrowserDialog();
+            if(ProjectBrowser.ShowDialog() == false)
+            {
+                Application.Current.Shutdown();
+            }
+            else
+            {
+
+            }
         }
     }
 }
