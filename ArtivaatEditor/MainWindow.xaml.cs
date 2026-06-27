@@ -31,6 +31,7 @@ namespace ArtivaatEditor
         }
         private void OpenBrowserDialog()
         {
+
             var ProjectBrowser = new ProjectBrowserDialog();
             if(ProjectBrowser.ShowDialog() == false)
             {
