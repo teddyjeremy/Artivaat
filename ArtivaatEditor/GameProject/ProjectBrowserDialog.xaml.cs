@@ -24,18 +24,21 @@ namespace ArtivaatEditor.GameProject
 
         private void OnToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if(sender == openProjectButton)
+            if (sender == openProjectButton)
             {
-                if(createProjectButton.IsChecked == true) 
-                {
-                    createProjectButton = false;
-                    browserContent.Margin = new Thickness(0);
-                }
                 openProjectButton.IsChecked = true;
+                createProjectButton.IsChecked = false;
+
+                OpenProjectView.Visibility = Visibility.Visible;
+                CreateProjectView.Visibility = Visibility.Collapsed;
             }
             else
             {
+                createProjectButton.IsChecked = true;
+                openProjectButton.IsChecked = false;
 
+                OpenProjectView.Visibility = Visibility.Collapsed;
+                CreateProjectView.Visibility = Visibility.Visible;
             }
         }
     }

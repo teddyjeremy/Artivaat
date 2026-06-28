@@ -4,8 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArtivaatEditor.GameProject"
-        mc:Ignorable="d" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        Title="ProjectBrowserDialog" Height="450" Width="800">
+        mc:Ignorable="d"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True"
+        Title="Project Browser"
+        Width="800"
+        Height="520"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
     <Grid>
 
         <Grid.RowDefinitions>
@@ -13,28 +20,38 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Top buttons -->
+        <!-- Header -->
         <StackPanel Grid.Row="0"
-                Orientation="Horizontal"
-                HorizontalAlignment="Center"
-                Margin="20">
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="20">
 
-            <ToggleButton Content="Open Project"
-                      FontSize="32" x:Name="openProjectButton" Click="OnToggleButton_Click"/>
+            <ToggleButton x:Name="openProjectButton"
+                          Content="Open Project"
+                          FontSize="32"
+                          IsChecked="True"
+                          Click="OnToggleButton_Click"/>
 
-            <ToggleButton Content="Create Project"
-                      FontSize="32"
-                      Margin="30,0,0,0" x:Name="createProjectButton"/>
+            <ToggleButton x:Name="createProjectButton"
+                          Content="Create Project"
+                          FontSize="32"
+                          Margin="30,0,0,0"
+                          Click="OnToggleButton_Click"/>
 
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" x:Name="browserContent" >
-           <!-- Main content -->
-            <Border Grid.Row="1" Background="LightBlue" >
-              <TextBlock FontSize="72" Text="Open Project"></TextBlock>
-            </Border>
-            <Border Grid.Row="1" Background="LightGreen">
-              <TextBlock FontSize="72" Text="Create Project"></TextBlock>
-            </Border>
-        </StackPanel>
+
+        <!-- Content -->
+        <Grid Grid.Row="1">
+
+            <local:OpenProjectView
+                x:Name="OpenProjectView"/>
+
+            <local:CreateProjectView
+                x:Name="CreateProjectView"
+                Visibility="Collapsed"/>
+
+        </Grid>
+
     </Grid>
+
 </Window>
